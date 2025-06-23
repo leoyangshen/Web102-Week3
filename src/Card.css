@@ -1,0 +1,88 @@
+/* src/Card.css */
+
+/* --- Outer Container for each Card (for grid layout in App.jsx) --- */
+.card-outer-container {
+  /* This ensures each card component takes up a defined space in the grid */
+  width: 250px; /* Example size */
+  height: 350px; /* Example size */
+  margin: 15px; /* Spacing between cards */
+  position: relative; /* For delete button positioning */
+}
+
+/* --- Wrapper for the actual flippable element --- */
+.card-inner-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative; /* Needed for absolute positioning of card faces */
+  perspective: 1000px; /* Creates the 3D depth for the flip effect */
+  cursor: pointer;
+}
+
+/* --- The Flippable Card Element --- */
+.card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d; /* Ensures children (faces) also participate in 3D transform */
+  transition: transform 0.8s; /* Smooth animation for the flip */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* --- State for Flipped Card --- */
+.card.flipped {
+  transform: rotateY(180deg); /* Rotate 180 degrees around the Y-axis when flipped */
+}
+
+/* --- Card Faces (Front & Back) --- */
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hides the back of the element when facing away */
+  display: flex;
+  flex-direction: column; /* To stack content vertically */
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box; /* Include padding in width/height */
+}
+
+.card-front {
+  background-color: #3498db; /* Blue */
+}
+
+.card-back {
+  background-color: #e74c3c; /* Red */
+  transform: rotateY(180deg); /* Initially rotated to face away */
+}
+
+/* --- Delete Button --- */
+.delete-button {
+  position: absolute;
+  top: -10px; /* Adjust as needed */
+  right: -10px; /* Adjust as needed */
+  background-color: #f00;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10; /* Ensure it's on top */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.delete-button:hover {
+  background-color: #c00;
+}
