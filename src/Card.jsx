@@ -3,7 +3,7 @@ import React, { useState, useEffect, forwardRef, useImperativeHandle } from 'rea
 import './Card.css'; // Your existing card styles
 
 // Use forwardRef to allow App.jsx to attach a ref to Card
-const Card = forwardRef(({ id, frontContent, backContent, correctAnswer, isFlipped, guessStatus, onGuessSubmit, onShowAnswer }, ref) => {
+const Card = forwardRef( ({ id, frontContent, backContent, correctAnswer, isFlipped, guessStatus, onGuessSubmit, onShowAnswer }, ref) => {
   const [currentGuess, setCurrentGuess] = useState('');
 
   // Reset guess input when the card ID changes (i.e., we navigate to a new card)

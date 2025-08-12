@@ -84,7 +84,7 @@ function App() {
   const isAtEnd = currentCardIndex === cards.length - 1;
 
   // Effect to reset guess status and potentially card state when card index changes
-  useEffect(() => {
+  useEffect( () => {
     setGuessStatus('idle');
     // Ensure the card is unflipped when we navigate to it, unless it was just correctly guessed
     setCards(prevCards =>
@@ -95,7 +95,7 @@ function App() {
             return card;
         })
     );
-  }, [currentCardIndex]); // Re-run when currentCardIndex changes
+  }, [currentCardIndex] ); // Re-run when currentCardIndex changes
 
   return (
     <div className="app-container">
